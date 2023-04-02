@@ -2,7 +2,7 @@ name: Sync Sourceforge to GitHub
 on:
   workflow_dispatch:
 jobs:
-  sync-sf-to-gh:
+  mirror-sf-to-gh:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -19,13 +19,13 @@ jobs:
     # - run: git clone --mirror git://git.code.sf.net/p/saga-gis/code saga-gis-code.git
     # - run: git clone --depth 1 git://git.code.sf.net/p/saga-gis/code saga-gis-code.git
     # - run: git clone --mirror git://git.code.sf.net/p/saga-gis/code saga-gis-code.git
-    - run: git clone --mirror --reference-if-able saga-gis-gh --dissociate git://git.code.sf.net/p/saga-gis/code saga-gis-code.git
+    - run: git clone --mirror --reference-if-able saga-gis-gh --dissociate --progress --verbose git://git.code.sf.net/p/saga-gis/code saga-gis-code.git
     - run: ls -la
     # - run: cd saga-gis-code.git
     - run: |
         ls -la
         ## git status
-        git log -15
+        git log -18
       working-directory: saga-gis-code.git
     # - run: |
     #     git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/echoix/saga-gis.git"
@@ -37,5 +37,5 @@ jobs:
         # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.PAT }}
       working-directory: saga-gis-code.git
-    #- run: git push --mirror --atomic github
+    #- run: git push --mirror --atomic --verbose --progress github
     #  working-directory: saga-gis-code.git
