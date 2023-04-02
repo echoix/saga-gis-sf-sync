@@ -5,7 +5,7 @@ jobs:
   sync-sf-to-gh:
     runs-on: ubuntu-latest
     steps:
-    - run: git clone --mirror git://git.code.sf.net/p/saga-gis/code 
+    - run: git clone --mirror git://git.code.sf.net/p/saga-gis/code saga-gis-code.git
     - run: ls -la
     - run: cd saga-gis-code.git
     - run: |
