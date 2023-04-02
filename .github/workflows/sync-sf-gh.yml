@@ -13,14 +13,19 @@ jobs:
         fetch-depth: 0
         lfs: true
         submodules: true
-    - run: ls -la && pwd
+    - run: |
+        ls -la
+        pwd
     # - run: git clone --mirror git://git.code.sf.net/p/saga-gis/code saga-gis-code.git
     # - run: git clone --depth 1 git://git.code.sf.net/p/saga-gis/code saga-gis-code.git
     # - run: git clone --mirror git://git.code.sf.net/p/saga-gis/code saga-gis-code.git
     - run: git clone --mirror --reference-if-able saga-gis-gh --dissociate git://git.code.sf.net/p/saga-gis/code saga-gis-code.git
     - run: ls -la
     # - run: cd saga-gis-code.git
-    - run: ls -la
+    - run: |
+        ls -la
+        git status
+        git log -15
       working-directory: saga-gis-code.git
     # - run: |
     #     git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/echoix/saga-gis.git"
