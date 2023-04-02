@@ -39,3 +39,5 @@ jobs:
       working-directory: saga-gis-code.git
     #- run: git push --mirror --atomic --verbose --progress github
     #  working-directory: saga-gis-code.git
+    - run: git push --mirror --atomic --verbose --progress --force-with-lease github
+      working-directory: saga-gis-code.git
