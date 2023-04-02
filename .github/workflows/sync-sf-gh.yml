@@ -1,0 +1,15 @@
+name: Sync Sourceforge to GitHub
+on:
+  workflow_dispatch:
+jobs:
+  sync-sf-to-gh:
+    runs-on: ubuntu-latest
+    steps:
+    - run: git clone --mirror git://git.code.sf.net/p/saga-gis/code saga-gis-code
+    - run: ls -la
+    - run: cd saga-gis-code.git
+    - run: |
+        git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/echoix/saga-gis.git"
+        git push --mirror github
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
