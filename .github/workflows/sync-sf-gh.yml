@@ -24,7 +24,7 @@ jobs:
     # - run: cd saga-gis-code.git
     - run: |
         ls -la
-        git status
+        ## git status
         git log -15
       working-directory: saga-gis-code.git
     # - run: |
