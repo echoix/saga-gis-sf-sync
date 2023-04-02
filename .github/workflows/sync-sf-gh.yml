@@ -7,7 +7,7 @@ jobs:
     steps:
     # - run: git clone --mirror git://git.code.sf.net/p/saga-gis/code saga-gis-code.git
     # - run: git clone --depth 1 git://git.code.sf.net/p/saga-gis/code saga-gis-code.git
-    - run: git clone --depth 1 --mirror git://git.code.sf.net/p/saga-gis/code saga-gis-code.git
+    - run: git clone --mirror git://git.code.sf.net/p/saga-gis/code saga-gis-code.git
     - run: ls -la
     # - run: cd saga-gis-code.git
     - run: ls -la
@@ -22,5 +22,5 @@ jobs:
         # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.PAT }}
       working-directory: saga-gis-code.git
-    - run: git push --mirror github
+    - run: git push --mirror --atomic github
       working-directory: saga-gis-code.git
